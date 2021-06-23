@@ -107,10 +107,12 @@ func go_frame_cb(frame *C.struct_uvc_frame, p unsafe.Pointer) {
 		// Metadata:     C.GoBytes(unsafe.Pointer(frame.metadata), C.int(frame.metadata_bytes)),
 		frame: frame,
 	}
-
+/*
 	select {
 	case fc <- fr:
 	default:
 		log.Printf("frame %d dropped", frame.sequence)
 	}
+	*/
+	fc <- fr
 }
